@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import pt.isec.pd.spring_boot.exemplo3.Servidores.ServidorPrincipal.BDConection.conectionBD;
+import pt.isec.pd.spring_boot.exemplo3.share.registo.registo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +26,13 @@ public class UserAuthenticationProvider implements AuthenticationProvider
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        if (username.equals("admin@isec.pt") && password.equals("admin")) {
-            List<GrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority("ADMIN"));
-            return new UsernamePasswordAuthenticationToken(username, password, authorities);
-        }
+        registo reg = db.autenticaCliente(username, password);
 
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        if (reg.getEmail().equals("admin@isec.pt") && reg.getPassword().equals("admin"))
+            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+
+        return new UsernamePasswordAuthenticationToken(reg.getEmail(), reg.getPassword(), authorities);
     }
 
     @Override

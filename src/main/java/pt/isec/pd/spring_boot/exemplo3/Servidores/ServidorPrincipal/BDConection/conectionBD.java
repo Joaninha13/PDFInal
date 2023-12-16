@@ -660,9 +660,37 @@ public class conectionBD {
             return null;
         }
 
-
         return consulta;
     } // testar ->
+
+    public ConsultPresence consultaEventos() {
+
+            ConsultPresence consulta = new ConsultPresence();
+
+            try (Statement stmt = conn.createStatement()) {
+                String selectQuery = "SELECT * FROM Eventos";
+
+                try (ResultSet rs = stmt.executeQuery(selectQuery)) {
+                    while (rs.next()) {
+                        // Aqui você pode processar os resultados, por exemplo, imprimindo no console
+                        System.out.println("Evento: " + rs.getString("Designacao"));
+                        System.out.println("Localidade: " + rs.getString("Localidade"));
+                        System.out.println("Data: " + rs.getString("Data"));
+                        System.out.println("Hora Início: " + rs.getString("Hora_Inicio"));
+                        System.out.println("Hora Fim: " + rs.getString("Hora_Fim"));
+                        System.out.println("-----------------------");
+
+                        consulta.getEvent().add(new events(rs.getString("Designacao"), rs.getString("Localidade"), rs.getString("Data"), rs.getString("Hora_Inicio"), rs.getString("Hora_Fim")));
+                    }
+                }
+            } catch (SQLException e) {
+                System.err.println("Erro ao consultar eventos: " + e.getMessage());
+                return null;
+            }
+
+        return consulta;
+    }
+
 
 
     //Codigos

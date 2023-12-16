@@ -19,10 +19,10 @@ INSERT INTO Versao (numero_versao) VALUES (0);
 
 -- Inserir dados em múltiplas tabelas para teste
 
---INSERT INTO Eventos (Designacao, Localidade, Data, Hora_Inicio, Hora_Fim) VALUES ('Evento1', 'LocalA', '2023-01-01', '10:00:00', '12:00:00'), ('Evento2', 'LocalB', '2023-02-01', '15:30:00', '17:30:00'), ('Evento3', 'LocalC', '2023-03-01', '18:00:00', '20:00:00'), ('Evento4', 'LocalD', '2023-04-01', '14:00:00', '16:00:00'), ('Evento5', 'LocalE', '2023-05-01', '17:00:00', '19:00:00');
+INSERT INTO Eventos (Designacao, Localidade, Data, Hora_Inicio, Hora_Fim) VALUES ('Evento1', 'LocalA', '2023-01-01', '10:00:00', '12:00:00'), ('Evento2', 'LocalB', '2023-02-01', '15:30:00', '17:30:00'), ('Evento3', 'LocalC', '2023-03-01', '18:00:00', '20:00:00'), ('Evento4', 'LocalD', '2023-04-01', '14:00:00', '16:00:00'), ('Evento5', 'LocalE', '2023-05-01', '17:00:00', '19:00:00');
 
---INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES('2', 'User1', 'user1', 'user1'), ('3', 'User2', 'user2', 'user2'), ('4', 'User3', 'user3', 'user3'), ('5', 'User4', 'user4', 'user4');
+INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES('2', 'User1', 'user1', 'user1'), ('3', 'User2', 'user2', 'user2'), ('4', 'User3', 'user3', 'user3'), ('5', 'User4', 'user4', 'user4');
 
---INSERT INTO Presencas (Evento_Designacao, Utilizador_ID) VALUES('Evento1', '1'), ('Evento2', '1'), ('Evento2', '2'),('Evento3', '2'), ('Evento1', '3'), ('Evento4', '3'), ('Evento5', '4');
+INSERT INTO Presencas (Evento_Designacao, Utilizador_ID) VALUES('Evento1', '1'), ('Evento2', '1'), ('Evento2', '2'),('Evento3', '2'), ('Evento1', '3'), ('Evento4', '3'), ('Evento5', '4');
 
---INSERT INTO Codigo_Registo (codigo, Tempo, Evento_Designacao) VALUES('0000', '60', 'Evento1'),('1111', '10', 'Evento2'),('3333', '3', 'Evento3'),('4444', '45', 'Evento4');
+INSERT INTO Codigo_Registo (codigo, Tempo, Evento_Designacao) VALUES('0000', '60', 'Evento1'),('1111', '10', 'Evento2'),('3333', '3', 'Evento3'),('4444', '45', 'Evento4');

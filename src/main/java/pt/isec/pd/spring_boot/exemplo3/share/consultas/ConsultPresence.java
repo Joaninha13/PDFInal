@@ -25,5 +25,7 @@ public class ConsultPresence implements Serializable {
 
     public List<events> getEvent() {return event;}
 
+    public events getEvents(){return event.get(0);}
+
     public void setEvent(List<events> event) {this.event = event;}
 }

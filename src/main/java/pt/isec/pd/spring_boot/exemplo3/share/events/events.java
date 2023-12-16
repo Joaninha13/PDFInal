@@ -1,6 +1,10 @@
 package pt.isec.pd.spring_boot.exemplo3.share.events;
 
+import pt.isec.pd.spring_boot.exemplo3.Rest.Utils;
+
 import java.io.Serializable;
+import java.net.DatagramPacket;
+import java.util.Date;
 
 public class events implements Serializable {
 
@@ -28,6 +32,8 @@ public class events implements Serializable {
     public void setLocal(String local) {this.local = local;}
 
     public String getData() {return data;}
+
+    public Date getDatas() {return Utils.StrToDate(data);}
 
     public void setData(String data) {this.data = data;}
 
