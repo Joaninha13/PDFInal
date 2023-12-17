@@ -568,7 +568,7 @@ public class conectionBD {
             return "Erro ao registar presenca";
         }
 
-    } // testar -> updateVersion();
+    } // testar ->
 
 
     //Consultas
@@ -583,6 +583,37 @@ public class conectionBD {
                     "JOIN Eventos E ON P.Evento_Designacao = E.Designacao " +
                     "JOIN Utilizadores U ON P.Utilizador_ID = U.Numero_Indentificacao " +
                     "WHERE U.Email = '" + email + "' AND (E.Designacao LIKE '%" + filtro + "%' OR E.Data LIKE '%" + filtro + "%' OR E.Localidade LIKE '%" + filtro + "%' OR E.Hora_Inicio LIKE '%" + filtro + "%' OR E.Hora_Fim LIKE '%" + filtro + "%')";
+            try (ResultSet rs = stmt.executeQuery(selectQuery)) {
+                while (rs.next()) {
+                    // Aqui você pode processar os resultados, por exemplo, imprimindo no console
+                    System.out.println("Evento: " + rs.getString("Evento_Designacao"));
+                    System.out.println("Localidade: " + rs.getString("Localidade"));
+                    System.out.println("Data: " + rs.getString("Data"));
+                    System.out.println("Hora Início: " + rs.getString("Hora_Inicio"));
+                    System.out.println("Hora Fim: " + rs.getString("Hora_Fim"));
+                    System.out.println("-----------------------");
+
+                    consulta.getEvent().add(new events(rs.getString("Evento_Designacao"), rs.getString("Localidade"), rs.getString("Data"), rs.getString("Hora_Inicio"), rs.getString("Hora_Fim")));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao consultar presenças do utilizador: " + e.getMessage());
+            return null;
+        }
+        return consulta;
+    } // testar ->
+
+    public ConsultPresence consultPresencesUtilizador(String email){
+
+        ConsultPresence consulta = new ConsultPresence();
+
+        try (Statement stmt = conn.createStatement()) {
+            String selectQuery = "SELECT P.Evento_Designacao, E.Localidade, E.Data, E.Hora_Inicio, E.Hora_Fim " +
+                    "FROM Presencas P " +
+                    "JOIN Eventos E ON P.Evento_Designacao = E.Designacao " +
+                    "JOIN Utilizadores U ON P.Utilizador_ID = U.Numero_Indentificacao " +
+                    "WHERE U.Email = '" + email + "'";
+
             try (ResultSet rs = stmt.executeQuery(selectQuery)) {
                 while (rs.next()) {
                     // Aqui você pode processar os resultados, por exemplo, imprimindo no console

@@ -15,7 +15,7 @@ import java.util.List;
 public class consultPresenModel {
 
 
-    events event;
+    List<events> event;
 
     List<registo> reg;
 

@@ -24,20 +24,6 @@ public class EventosController {
 
     private static final conectionBD db = conectionBD.getInstance();
 
-    /*@PutMapping("/add")
-    public ResponseEntity<eventsModel> addEvent(@PathVariable("descricao") String descricao,
-                                                @PathVariable("local") String local,
-                                                @PathVariable("data") String data,
-                                                @PathVariable("horaInicio") String horaInicio,
-                                                @PathVariable("horaFim") String horaFim) {
-
-        if(db.criaEvento(descricao, local, data, horaInicio, horaFim).equals("Evento criado com sucesso!"))
-            return ResponseEntity.ok(new eventsModel(descricao, local, data, horaInicio, horaFim));
-        else
-            return ResponseEntity.badRequest().build();
-
-    }*/
-
     @PostMapping
     public ResponseEntity<String> addEvent(@RequestBody eventsModel events) {
 
@@ -71,7 +57,6 @@ public class EventosController {
 
 
     //Consultar os eventos criados, podendo ser aplicados diversos tipos de critérios/filtros opcionais
-
     @GetMapping
     public ResponseEntity<ArrayList<eventsModel>> getEvents(@RequestParam("di") Optional<String> data_inicio, @RequestParam("df") Optional<String> data_fim, @RequestParam("loc") Optional<String> local) {
 
@@ -107,7 +92,6 @@ public class EventosController {
 
 
     //Gerar um código de registo de presenças para um evento, com indicação do tempo de validade em minutos
-
     @PostMapping("/gerarCodigo")
     public ResponseEntity<String> geraCodigo(@RequestBody geraCodigoModel gerar) {
 
@@ -124,7 +108,6 @@ public class EventosController {
 
 
     //Consultar as presenças registadas num determinado evento.
-
     @GetMapping("/presencas")
     public ResponseEntity<consultPresenModel> getPresenceEvents(@RequestParam("desc") String descricao) {
         consultPresenModel eventReturn = null;
@@ -135,7 +118,7 @@ public class EventosController {
         ConsultPresence consultPresence = db.consultaPresencasEvento(descricao);
 
         if(consultPresence != null) {
-            eventReturn = new consultPresenModel(consultPresence.getEvents(), consultPresence.getReg());
+            eventReturn = new consultPresenModel(consultPresence.getEvent(), consultPresence.getReg());
             return ResponseEntity.status(HttpStatus.OK).body(eventReturn);
         }
 
