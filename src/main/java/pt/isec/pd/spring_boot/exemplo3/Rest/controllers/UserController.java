@@ -26,9 +26,9 @@ public class UserController {
 
     //Registar um utilizador
     @PostMapping("/reg")
-    public ResponseEntity<String> regEvent(@RequestBody regModel events) {
+    public ResponseEntity<String> regEvent(@RequestBody regModel reg) {
 
-        registo auxreg = db.registaCliente(new registo(events.getNome(), events.getEmail(), events.getPassword()));
+        registo auxreg = db.registaCliente(new registo(reg.getNome(), reg.getEmail(), reg.getPassword()));
 
         if(!auxreg.isRegistered())
             return ResponseEntity.badRequest().body(auxreg.getMsg());
