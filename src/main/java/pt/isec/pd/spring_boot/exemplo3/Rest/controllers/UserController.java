@@ -59,8 +59,6 @@ public class UserController {
 
         ConsultPresence consultPresence = db.consultPresencesUtilizador(authentication.getName());
 
-        presenReturn.setReg(consultPresence.getReg());
-
         for (events aux : consultPresence.getEvent()) {
             boolean add = true;
             if (dataInicio != null && aux.getDatas().compareTo(dataInicio) < 0)

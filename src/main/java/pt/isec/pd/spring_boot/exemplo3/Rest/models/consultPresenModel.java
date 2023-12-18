@@ -6,7 +6,6 @@ import pt.isec.pd.spring_boot.exemplo3.share.registo.registo;
 
 import java.util.List;
 
-
 @Data
 @Getter
 @Setter

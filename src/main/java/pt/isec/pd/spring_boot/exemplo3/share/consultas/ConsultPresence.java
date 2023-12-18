@@ -23,6 +23,8 @@ public class ConsultPresence implements Serializable {
 
     public void setReg(List<registo> reg) {this.reg = reg;}
 
+    public registo getRegisto(){return reg.get(0);}
+
     public List<events> getEvent() {return event;}
 
     public events getEvents(){return event.get(0);}

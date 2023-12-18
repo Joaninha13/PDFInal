@@ -19,7 +19,7 @@ INSERT INTO Versao (numero_versao) VALUES (0);
 
 -- Inserir dados em múltiplas tabelas para teste
 
-INSERT INTO Eventos (Designacao, Localidade, Data, Hora_Inicio, Hora_Fim) VALUES ('Evento1', 'LocalA', '2023-01-01', '10:00:00', '12:00:00'), ('Evento2', 'LocalB', '2023-02-01', '15:30:00', '17:30:00'), ('Evento3', 'LocalC', '2023-03-01', '18:00:00', '20:00:00'), ('Evento4', 'LocalD', '2023-04-01', '14:00:00', '16:00:00'), ('Evento5', 'LocalE', '2023-05-01', '17:00:00', '19:00:00');
+INSERT INTO Eventos (Designacao, Localidade, Data, Hora_Inicio, Hora_Fim) VALUES ('Evento1', 'LocalA', '2023-01-01', '10:00:00', '12:00:00'), ('Evento2', 'LocalB', '2023-02-01', '15:30:00', '17:30:00'), ('Evento3', 'LocalC', '2023-03-01', '18:00:00', '20:00:00'), ('Evento4', 'LocalD', '2023-04-01', '14:00:00', '16:00:00'), ('Evento5', 'LocalE', '2023-05-01', '17:00:00', '19:00:00'), ('Evento6', 'LocalF', '2023-06-01', '10:00:00', '12:00:00'), ('Evento7', 'LocalG', '2023-07-01', '15:30:00', '17:30:00'), ('Evento8', 'LocalH', '2023-08-01', '18:00:00', '20:00:00'), ('Evento9', 'LocalI', '2023-09-01', '14:00:00', '16:00:00'), ('Evento10', 'LocalJ', '2023-10-01', '17:00:00', '19:00:00');
 
 INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES('2', 'User1', 'user1', 'user1'), ('3', 'User2', 'user2', 'user2'), ('4', 'User3', 'user3', 'user3'), ('5', 'User4', 'user4', 'user4');
 

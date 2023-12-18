@@ -28,7 +28,7 @@ public class EventosController {
     public ResponseEntity<String> addEvent(@RequestBody eventsModel events) {
 
         if (!Utils.isAdmin())
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Não tem permissões para gerar códigos");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Não tem permissões de Admin para criar eventos");
 
 
         String result = db.criaEvento(events.getDescricao(), events.getLocal(), events.getData(), events.getHoraInicio(), events.getHoraFim());
@@ -96,7 +96,7 @@ public class EventosController {
     public ResponseEntity<String> geraCodigo(@RequestBody geraCodigoModel gerar) {
 
         if (!Utils.isAdmin())
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Não tem permissões de admin para gerar códigos");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Não tem permissões de admin");
 
         String result = db.geraCodigo(gerar.getDescricao(), gerar.getTempoValidade());
 

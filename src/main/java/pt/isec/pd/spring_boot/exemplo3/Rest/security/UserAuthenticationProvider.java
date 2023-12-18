@@ -21,12 +21,15 @@ public class UserAuthenticationProvider implements AuthenticationProvider
 
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException
-    {
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException{
+
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
         registo reg = db.autenticaCliente(username, password);
+
+        if (reg.getName() == null)
+            return null;
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         if (reg.getEmail().equals("admin") && reg.getPassword().equals("admin"))
