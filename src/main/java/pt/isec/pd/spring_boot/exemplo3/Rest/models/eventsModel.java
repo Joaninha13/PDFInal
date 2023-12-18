@@ -9,6 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 public class eventsModel {
 
-    private String descricao, local, data, horaIncio, horaFim;
+    private String descricao, local, data, horaInicio, horaFim;
 
 }

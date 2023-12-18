@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Utilizadores (Numero_Indentificacao INTEGER PRIMARY K
 CREATE TABLE IF NOT EXISTS Presencas (Evento_Designacao Varchar(100),Utilizador_ID INTEGER,FOREIGN KEY (Evento_Designacao) REFERENCES Evento (Designacao), FOREIGN KEY (Utilizador_ID) REFERENCES Utilizadores (Numero_Indentificacao));
 
 -- Inserir um utilizador na tabela Utilizadores e inicializar a versão da base de dados
-INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES ('1', 'admin', 'admin@isec.pt', 'admin');
+INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES ('1', 'admin', 'admin', 'admin');
 
 INSERT INTO Versao (numero_versao) VALUES (0);
 
@@ -25,4 +25,4 @@ INSERT INTO Utilizadores (Numero_Indentificacao, Nome, Email, Password) VALUES('
 
 INSERT INTO Presencas (Evento_Designacao, Utilizador_ID) VALUES('Evento1', '1'), ('Evento2', '1'), ('Evento2', '2'),('Evento3', '2'), ('Evento1', '3'), ('Evento4', '3'), ('Evento5', '4');
 
-INSERT INTO Codigo_Registo (codigo, Tempo, Evento_Designacao) VALUES('0000', '60', 'Evento1'),('1111', '10', 'Evento2'),('3333', '3', 'Evento3'),('4444', '45', 'Evento4');
+INSERT INTO Codigo_Registo (codigo, Tempo, Evento_Designacao) VALUES('0000', '60', 'Evento1'),('1111', '10', 'Evento2'),('3333', '20', 'Evento3'),('4444', '45', 'Evento4');

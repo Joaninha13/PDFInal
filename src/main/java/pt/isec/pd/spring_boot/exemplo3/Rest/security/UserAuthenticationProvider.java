@@ -29,7 +29,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider
         registo reg = db.autenticaCliente(username, password);
 
         List<GrantedAuthority> authorities = new ArrayList<>();
-        if (reg.getEmail().equals("admin@isec.pt") && reg.getPassword().equals("admin"))
+        if (reg.getEmail().equals("admin") && reg.getPassword().equals("admin"))
             authorities.add(new SimpleGrantedAuthority("ADMIN"));
 
         return new UsernamePasswordAuthenticationToken(reg.getEmail(), reg.getPassword(), authorities);
